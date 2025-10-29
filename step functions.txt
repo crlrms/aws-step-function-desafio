@@ -1,0 +1,30 @@
+AWS Step Functions
+
+- Orquestração de serviços
+- Auxilia a construir rotinas
+- Simplifica
+- Menos código
+
+
+Gerencia todo o workflow do início ao fim.
+Possui uma forma visual para mostrar todo o fluxo onde uma mensagem tem que
+percorrer (workflow studio).
+
+
+# Como realizar validações
+Use o estado "Escolha" no seu workflow para permitir adicionar lógica
+de ramificação (como um if/then/else) baseada na saída da etapa anterior.
+
+Usar uma função Lambda para processar e validar os dados de entrada/saída,
+e a resposta dessa Lambda alimenta a decisão do estado "Escolha".
+
+# Como criar e executar lambda no aws step functions
+- Criar a função Lambda com a lógica de negócio (ex: processar pagamento).
+
+- No Workflow Studio, adicionar um estado do tipo "Tarefa" (Task).
+
+- Configurar esta "Tarefa" para chamar a API Invoke do AWS Lambda, especificando o nome da função.
+
+- O Step Functions coordena a execução da Lambda e lida com a passagem de dados (entrada e saída) entre ela e a próxima etapa do fluxo.
+
+
